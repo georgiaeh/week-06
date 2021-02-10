@@ -4,12 +4,12 @@ require __DIR__ . "/vendor/autoload.php";
 
 //Create a class that validates emails and postcodes.
 
-class Validator{
+class Validator
+{
 
     public function email($email)
     {
-        $string = preg_replace("/(^\s*)|(\s*$)/", "", $email);
-        return filter_var($string, FILTER_VALIDATE_EMAIL) === $string;
+        return filter_var($email, FILTER_VALIDATE_EMAIL) === $email;
     }
 
     public function postcode($postcode)
@@ -38,3 +38,8 @@ dump($validator->postcode("SW1A 1AA")); // true
 dump($validator->postcode("12B DI9")); // false
 dump($validator->postcode("EST4 DD29")); // false
 dump($validator->postcode("blah blah BS5 8RJ blah blah")); // false
+
+
+
+//If need to remove whitespace from email addresses/postcodes
+// $string = preg_replace("/(^\s*)|(\s*$)/", "", $email);
