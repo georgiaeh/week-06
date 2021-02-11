@@ -7,12 +7,12 @@ require __DIR__ . "/vendor/autoload.php";
 class Validator
 {
 
-    public function email($email)
+    public function email(string $email) : bool
     {
         return filter_var($email, FILTER_VALIDATE_EMAIL) === $email;
     }
 
-    public function postcode($postcode)
+    public function postcode(string $postcode) : bool
     {
         return preg_match("/^[A-Z][A-Z0-9]{2,3} [0-9][A-Z]{2}$/", $postcode) === 1;
     }
