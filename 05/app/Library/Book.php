@@ -7,17 +7,18 @@ class Book{
     private $pageCount;
     private $pagesRead = 1;
 
-    public function __construct($title, $pageCount)
+    public function __construct(string $title, int $pageCount)
     {
         $this->title = $title;
         $this->pageCount = $pageCount;
     }
 
-    public function read($num){
+    public function read(int $num) : void
+    {
         $this->pagesRead += $num;
     }
 
-    public function currentPage()
+    public function currentPage() : int
     {
         return $this->pagesRead;
     }
